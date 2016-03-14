@@ -6,6 +6,13 @@
 
 .navbar {
   margin-bottom: 0;
+  .image-side {
+    color: #ffffff;
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
 }
 
 .footer {
@@ -17,6 +24,10 @@
 
   p {
     float: none;
+
+    .fa-heart {
+      color: red;
+    }
   }
 }
 
