@@ -4,6 +4,10 @@
           border-radius: 0 !important;
 }
 
+.navbar {
+  margin-bottom: 0;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -14,4 +18,14 @@
   p {
     float: none;
   }
+}
+
+#jumbotron {
+  color: #ffffff;
+
+  background: #3424af; /* Old browsers */
+  background: -moz-linear-gradient(left,  #3424af 1%, #7344c0 51%, #be68d4 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  #3424af 1%,#7344c0 51%,#be68d4 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  #3424af 1%,#7344c0 51%,#be68d4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3424af', endColorstr='#be68d4',GradientType=1 ); /* IE6-9 */
 }
