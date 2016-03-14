@@ -1,0 +1,5 @@
+projects:
+  - gocd-s3-artifacts:
+      name: "GoCD S3 Artifacts"
+      github_url: "https://github.com/ind9/gocd-s3-artifacts"
+      
