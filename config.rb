@@ -1,5 +1,3 @@
-activate :bh
-
 ###
 # Page options, layouts, aliases and proxies
 ###
@@ -24,6 +22,8 @@ page '/*.txt', layout: false
 configure :development do
   activate :livereload
 end
+
+activate :bh
 
 ###
 # Helpers
