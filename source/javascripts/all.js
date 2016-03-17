@@ -27,4 +27,15 @@ $(function() {
       });
     });
   });
+
+  $(window).scroll(function(e) {
+    var bannerOffset = $('.banner').offset().top;
+    var windowScroll = $(window).scrollTop();
+    var navbar = $('.navbar')
+    if (windowScroll >= (bannerOffset - 110)) {
+      navbar.addClass('shrink')
+    } else {
+      navbar.removeClass('shrink')
+    }
+  })
 });

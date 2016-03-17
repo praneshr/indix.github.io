@@ -4,12 +4,17 @@ title: Indix OSS
 
 <div>
   <div class="jumbotron" id="jumbotron">
-    <div class="container text-center">
+    <div class="container text-center banner">
       <h1>We solve some hard problems at Indix.</h1>
       <p>We use a lot of open source tools, and love contributing back to the community.</p>
     </div>
   </div>
   <div class="container">
+    <div class="section-title">
+      <div class="title">
+        <span>Our Projects</span>
+      </div>
+    </div>
     <% data.projects.each_slice(3) do |row| %>
       <% panel_row column_class: 'col-sm-4' do %>
         <% row.each do |project| %>
@@ -17,9 +22,15 @@ title: Indix OSS
             <% panel title: project do%>
               <div class="panel-body"></div>
               <div class="panel-footer">
-                <i class="fa fa-code"></i> <span class="language"></span>
-                <i class="fa fa-star-o"></i> <span class="stars"></span>
-                <i class="fa fa-code-fork"></i> <span class="forks"></span>
+                <span class="wrap">
+                  <i class="fa fa-code"></i> <span class="language"></span>
+                </span>
+                <span class="wrap">
+                  <i class="fa fa-star-o"></i> <span class="stars"></span>
+                </span>
+                <span class="wrap">
+                  <i class="fa fa-code-fork"></i> <span class="forks"></span>
+                </span>
               </div>
             <% end %>
           </a>
