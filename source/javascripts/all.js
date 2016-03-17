@@ -5,6 +5,7 @@ $(function() {
     data.items.forEach(function(repo) {
       var repoContainer = $('#' + repo.name);
       if(repoContainer.length > 0) {
+        repoContainer.attr('href', repo.url);
         var description = $('<p>').text(repo.description);
         $('.panel-body', repoContainer).append(description);
         $('.language', repoContainer).text(repo.language);
@@ -12,7 +13,5 @@ $(function() {
         $('.forks', repoContainer).text(repo.forks);
       }
     });
-
-    console.log(repos);
   });
 });
