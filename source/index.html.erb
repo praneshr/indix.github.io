@@ -10,6 +10,10 @@ title: Indix OSS
     </div>
   </div>
   <div class="container">
-  
+    <% panel_row column_class: 'col-sm-4' do %>
+      <% data.projects.each do |project| %>
+        <%= panel title: project %>
+      <% end %>
+    <% end %>
   </div>
 </div>
