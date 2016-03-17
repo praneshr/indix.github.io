@@ -1,8 +1,16 @@
+Array.prototype.eachSlice = function (size, callback){
+  for (var i = 0, l = this.length; i < l; i += size){
+    callback.call(this, this.slice(i, i + size));
+  }
+};
+
 $(function() {
   $.get('https://api.github.com/search/repositories?per_page=20&page=1&q=user:ind9&sort=stars', function(data) {
     if(!data) return;
+
     var repos = [];
     var contributors = {};
+
     data.items.forEach(function(repo) {
       var repoContainer = $('#' + repo.name);
       if(repoContainer.length > 0) {
@@ -16,8 +24,9 @@ $(function() {
       }
     });
 
+    var requests = [];
     repos.forEach(function(repo) {
-      $.get('https://api.github.com/repos/ind9/' + repo + '/contributors', function(data) {
+      var request = $.get('https://api.github.com/repos/ind9/' + repo + '/contributors', function(data) {
         if(!data) return;
 
         data.forEach(function(contributor) {
@@ -25,17 +34,30 @@ $(function() {
             contributors[contributor.login] = contributor;
         });
       });
+      requests.push(request);
     });
+    var allRequests = $.when.apply($, requests);
+    allRequests.done(function() {
+      var contributorsContainer = $('#contributors');
+      Object.keys(contributors).eachSlice(6, function(row) {
+        var rowContainer = $('<div class="row"></div>');
+        row.forEach(function(contributor) {
+          var contributorContainer = $('<div class="col-md-2 col-sm-4"><img class="contributor-image" src="' + contributors[contributor].avatar_url + '"/></div>');
+          rowContainer.append(contributorContainer);
+        });
+        contributorsContainer.append(rowContainer);
+      });
+    })
   });
 
   $(window).scroll(function(e) {
     var bannerOffset = $('.banner').offset().top;
     var windowScroll = $(window).scrollTop();
-    var navbar = $('.navbar')
+    var navbar = $('.navbar');
     if (windowScroll >= (bannerOffset - 110)) {
-      navbar.addClass('shrink')
+      navbar.addClass('shrink');
     } else {
-      navbar.removeClass('shrink')
+      navbar.removeClass('shrink');
     }
-  })
+  });
 });
