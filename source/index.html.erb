@@ -10,18 +10,20 @@ title: Indix OSS
     </div>
   </div>
   <div class="container">
-    <% panel_row column_class: 'col-sm-4' do %>
-      <% data.projects.each do |project| %>
-        <a href="#" id="<%= project %>">
-          <% panel title: project do%>
-            <div class="panel-body"></div>
-            <div class="panel-footer">
-              <i class="fa fa-code"></i> <span class="language"></span>
-              <i class="fa fa-star-o"></i> <span class="stars"></span>
-              <i class="fa fa-code-fork"></i> <span class="forks"></span>
-            </div>
-          <% end %>
-        </a>
+    <% data.projects.each_slice(3) do |row| %>
+      <% panel_row column_class: 'col-sm-4' do %>
+        <% row.each do |project| %>
+          <a href="#" id="<%= project %>">
+            <% panel title: project do%>
+              <div class="panel-body"></div>
+              <div class="panel-footer">
+                <i class="fa fa-code"></i> <span class="language"></span>
+                <i class="fa fa-star-o"></i> <span class="stars"></span>
+                <i class="fa fa-code-fork"></i> <span class="forks"></span>
+              </div>
+            <% end %>
+          </a>
+        <% end %>
       <% end %>
     <% end %>
   </div>
