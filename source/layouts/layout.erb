@@ -15,16 +15,22 @@
   </head>
 
   <body class="<%= page_classes %>">
-    <% navbar inverted: true do %>
+    <% navbar do %>
       <% vertical do %>
-        <%= image_tag("indix-logo.png", width: "60px", height: "60px") %>
-        <span class="image-side">Engineering</span>
+        <%= image_tag("logo.png", width: "170px") %>
+      <% end %>
+      <% horizontal do %>
+        <% nav class: 'navbar-right ix-menu' do %>
+          <a class="fancy" href="http://developer.indix.com" target="_blank">API</a>
+          <a class="fancy" href="https://github.com/ind9/" target="_blank">Github</a>
+          <a class="fancy" href="http://indix.com" target="_blank">Indix</a>
+        <% end %>
       <% end %>
     <% end %>
     <%= yield %>
     <footer class="footer navbar-inverse">
       <div class="container text-center">
-        <p class="navbar-text">Made with <i class="fa fa-heart"></i> by Indix</p>
+        <p class="navbar-text">Made with <i class="fa fa-heart"></i> at Indix</p>
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

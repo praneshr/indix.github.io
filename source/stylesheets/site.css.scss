@@ -1,18 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Questrial);
+@import url(https://fonts.googleapis.com/css?family=Muli:400,300);
 * {
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
 }
 
+body{
+  font-family: 'Muli', sans-serif;
+}
+
 .navbar {
   margin-bottom: 0;
-  .image-side {
-    color: #ffffff;
-    font-size: 20px;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-  }
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: transparent;
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+  display: flex;
+  align-items: center;
 }
 
 .footer {
@@ -20,7 +29,7 @@
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: #f5f5f5;
+  background: none;
 
   p {
     float: none;
@@ -33,10 +42,35 @@
 
 #jumbotron {
   color: #ffffff;
+  padding-top: 300px;
+  padding-bottom: 100px;
+  background: #FF512F; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FF512F , #DD2476); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FF512F , #DD2476); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  background: #3424af; /* Old browsers */
-  background: -moz-linear-gradient(left,  #3424af 1%, #7344c0 51%, #be68d4 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left,  #3424af 1%,#7344c0 51%,#be68d4 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right,  #3424af 1%,#7344c0 51%,#be68d4 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3424af', endColorstr='#be68d4',GradientType=1 ); /* IE6-9 */
+}
+
+h1{
+  font-family: 'Questrial', sans-serif;
+  font-weight: 100;
+}
+
+.ix-menu{
+  margin-top: 5px;
+}
+a{
+  &.fancy{
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 40px;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    padding: 14px 5px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    &:hover{
+      border-bottom: 1px solid #fff;
+    }
+  }
 }
