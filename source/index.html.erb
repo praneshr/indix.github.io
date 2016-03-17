@@ -12,7 +12,14 @@ title: Indix OSS
   <div class="container">
     <% panel_row column_class: 'col-sm-4' do %>
       <% data.projects.each do |project| %>
-        <%= panel title: project %>
+        <% panel title: project, id: project do%>
+          <div class="panel-body"></div>
+          <div class="panel-footer">
+            <i class="fa fa-code"></i> <span class="language"></span>
+            <i class="fa fa-star-o"></i> <span class="stars"></span>
+            <i class="fa fa-code-fork"></i> <span class="forks"></span>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
