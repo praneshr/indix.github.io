@@ -3,6 +3,6 @@
 ## Setup
 
 ```bash
-gem install
+bundle install
 bundle exec middleman serve
 ```
