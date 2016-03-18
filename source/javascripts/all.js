@@ -40,8 +40,9 @@ $(function() {
       requests.push(request);
     });
     var allRequests = $.when.apply($, requests);
-    allRequests.done(function() {
+    allRequests.then(function() {
       var contributorsContainer = $('#contributors');
+
       Object.keys(contributors)
             .sort(function(a,b){return contributors[b].contributions-contributors[a].contributions})
             .eachSlice(6, function(row) {
@@ -57,7 +58,9 @@ $(function() {
 
               contributorsContainer.append(rowContainer);
             });
-    })
+    }, function() {
+      $('#contributors').remove();
+    });
   });
 
   $(window).scroll(function(e) {
