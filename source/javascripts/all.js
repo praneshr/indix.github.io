@@ -15,7 +15,7 @@ $(function() {
       var repoContainer = $('[id="' + repo.name + '"]');
       if(repoContainer.length > 0) {
         repos.push(repo.name);
-        repoContainer.attr('href', repo.html_url);
+        repoContainer.attr('href', repo.homepage || repo.html_url);
         var description = $('<p>').text(repo.description);
         $('.panel-body', repoContainer).append(description);
         $('.language', repoContainer).text(repo.language);
