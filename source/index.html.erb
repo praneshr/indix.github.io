@@ -19,6 +19,7 @@ title: Indix OSS
     <% data.projects.each_slice(3) do |row| %>
       <% panel_row column_class: 'col-sm-4' do %>
         <% row.each do |project| %>
+          <% build_contributors project %>
           <a href="#" id="<%= project %>">
             <% panel title: project do%>
               <div class="panel-body"></div>
@@ -39,11 +40,22 @@ title: Indix OSS
       <% end %>
     <% end %>
   </div>
-  <div class="container" id="contributors">
+  <div class="container" id="contributors" data-is-client-side="<%= is_client_side %>">
     <div class="section-title">
       <div class="title">
         <span>Contributors</span>
       </div>
     </div>
+    <% contributors.sort_by { |k,v| -v.contributions }.each_slice(6) do |row| %>
+      <div class="row">
+        <% row.each do |contributor| %>
+          <div class="col-md-2 col-sm-4 col-xs-6" data-contributions="<%= contributor[1].contributions %>">
+            <a href="<%= contributor[1].html_url %>">
+              <img class="contributor-image" src="<%= contributor[1].avatar_url%>" />
+            </a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -5,6 +5,17 @@ Array.prototype.eachSlice = function (size, callback){
 };
 
 $(function() {
+  $(window).scroll(function(e) {
+    var bannerOffset = $('.banner').offset().top;
+    var windowScroll = $(window).scrollTop();
+    var navbar = $('.navbar');
+    if (windowScroll >= (bannerOffset - 110)) {
+      navbar.addClass('shrink');
+    } else {
+      navbar.removeClass('shrink');
+    }
+  });
+
   $.get('https://api.github.com/search/repositories?per_page=20&page=1&q=user:ind9&sort=stars', function(data) {
     if(!data) return;
 
@@ -24,6 +35,9 @@ $(function() {
       }
     });
 
+    var contributorsContainer = $('#contributors');
+    if(!contributorsContainer.data('is-client-side')) return;
+
     var requests = [];
     repos.forEach(function(repo) {
       var request = $.get('https://api.github.com/repos/ind9/' + repo + '/contributors', function(data) {
@@ -41,14 +55,14 @@ $(function() {
     });
     var allRequests = $.when.apply($, requests);
     allRequests.then(function() {
-      var contributorsContainer = $('#contributors');
-
       Object.keys(contributors)
             .sort(function(a,b){return contributors[b].contributions-contributors[a].contributions})
             .eachSlice(6, function(row) {
               var rowContainer = $('<div class="row"></div>');
               row.forEach(function(contributor) {
-                var contributorContainer = $('<div class="col-md-2 col-sm-4 col-xs-6"><a href="' +
+                var contributorContainer = $('<div class="col-md-2 col-sm-4 col-xs-6" data-contributions="' +
+                                              contributors[contributor].contributions +
+                                              '"><a href="' +
                                               contributors[contributor].html_url +
                                               '"><img class="contributor-image" src="' +
                                               contributors[contributor].avatar_url +
@@ -61,16 +75,5 @@ $(function() {
     }, function() {
       $('#contributors').remove();
     });
-  });
-
-  $(window).scroll(function(e) {
-    var bannerOffset = $('.banner').offset().top;
-    var windowScroll = $(window).scrollTop();
-    var navbar = $('.navbar');
-    if (windowScroll >= (bannerOffset - 110)) {
-      navbar.addClass('shrink');
-    } else {
-      navbar.removeClass('shrink');
-    }
   });
 });
