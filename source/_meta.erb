@@ -1,10 +1,16 @@
-<title><%= current_page.data.title || "OSS at Indix" %></title>
+<title><%= data.site.title %></title>
 <meta name="author" content="Indix">
-<meta name="description" content="Open source projects and contributors at Indix">
+<meta name="description" content="<%= data.site.description %>">
 
 <meta name="twitter:card" value="summary_large_image">
 <meta name="twitter:site" value="@Indix">
 <meta name="twitter:creator" value="@Indix">
-<meta name="twitter:title" content="OSS at Indix">
-<meta name="twitter:description" content="Open source projects and contributors at Indix">
+<meta name="twitter:title" content="<%= data.site.title %>">
+<meta name="twitter:description" content="<%= data.site.description %>">
 <meta name="twitter:image" content="http://oss.indix.com/images/social_logo.png">
+
+<meta content="<%= data.site.title %>" property="og:site_name">
+<meta content="<%= data.site.title %>" property="og:title">
+<meta content="<%= data.site.description %>" property="og:description">
+<meta content="website" property="og:type">
+<meta content="http://oss.indix.com" property="og:url">
