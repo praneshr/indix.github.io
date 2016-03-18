@@ -18,6 +18,7 @@ body{
   margin-bottom: 0;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   background-color: transparent;
   background: none;
@@ -77,6 +78,7 @@ a{
     padding: 14px 5px;
     border-bottom: 2px solid transparent;
     transition: all 0.2s ease;
+    text-align: center;
     &:hover{
       border-bottom: 1px solid #fff;
     }
@@ -178,5 +180,23 @@ a{
     .fa-heart {
       color: #EA355B;
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar{
+    .container{
+      text-align: center;
+      width: 100%;
+    }
+    &.shrink{
+      height: 100px;
+    }
+    img{
+      margin-bottom: 10px;
+    }
+  }
+  a.fancy{
+    margin: 0 30px;
   }
 }

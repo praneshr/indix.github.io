@@ -16,15 +16,11 @@
 
   <body class="<%= page_classes %>">
     <% navbar do %>
-      <% vertical do %>
-        <%= image_tag("logo.png", width: "170px") %>
-      <% end %>
-      <% horizontal do %>
-        <% nav class: 'navbar-right ix-menu' do %>
-        <a class="fancy" href="http://indix.com">Home</a>
-        <a class="fancy" href="http://indix.com/blog">Blog</a>
-          <a class="fancy" href="http://developer.indix.com">API</a>
-        <% end %>
+      <%= image_tag("logo.png", width: "170px") %>
+      <% nav class: 'navbar-right ix-menu' do %>
+      <a class="fancy" href="http://indix.com">Home</a>
+      <a class="fancy" href="http://indix.com/blog">Blog</a>
+      <a class="fancy" href="http://developer.indix.com">API</a>
       <% end %>
     <% end %>
     <%= yield %>
