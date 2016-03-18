@@ -47,7 +47,7 @@ $(function() {
             .eachSlice(6, function(row) {
               var rowContainer = $('<div class="row"></div>');
               row.forEach(function(contributor) {
-                var contributorContainer = $('<div class="col-md-2 col-sm-4"><a href="' +
+                var contributorContainer = $('<div class="col-md-2 col-sm-4 col-xs-6"><a href="' +
                                               contributors[contributor].html_url +
                                               '"><img class="contributor-image" src="' +
                                               contributors[contributor].avatar_url +
