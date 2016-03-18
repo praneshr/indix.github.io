@@ -22,13 +22,13 @@ body{
   display: flex;
   align-items: center;
   height: 100px;
-  z-index: 1000;
-  background: #FF512F; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #FF512F , #DD2476); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #FF512F , #DD2476); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  z-index: 1000; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   transition: all 0.5s ease;
   &.shrink{
     height: 40px;
+    background: #FF512F; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FF512F , #DD2476); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF512F , #DD2476);
   }
 }
 
@@ -46,12 +46,24 @@ body{
 
 #jumbotron {
   color: #ffffff;
-  padding-top: 300px;
+  height: 540px;
+  padding-top: 250px;
   padding-bottom: 100px;
+  position: relative;
   background: #FF512F; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #FF512F , #DD2476); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #FF512F , #DD2476); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  .bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url(/images/bg.png);
+    background-size: contain;
+    background-position: center center;
+    animation: move 500s linear infinite;
+  }
 }
 
 h1{
@@ -134,6 +146,20 @@ a{
 
 .contributor-image {
   border-radius: 50% !important;
-  height: 180px;
-  width: 180px;
+  width: 130px;
+  margin: 0 auto;
+  display: inherit;
+  margin-bottom: 30px;
+}
+
+@keyframes move {
+  0%{
+    background-position: center center;
+  }
+  50%{
+    background-position: 3000px center;
+  }
+  100%{
+    background-position: center center;
+  }
 }
