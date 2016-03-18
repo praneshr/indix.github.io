@@ -8,6 +8,7 @@ if [ ! -d "$DEPLOY_FOLDER" ]; then
   git clone -b master git@github.com:ind9/ind9.github.io $DEPLOY_FOLDER
 fi
 
+bundle install
 bundle exec middleman build
 cp -r build/ $DEPLOY_FOLDER
 
