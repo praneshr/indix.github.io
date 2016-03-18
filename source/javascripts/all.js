@@ -12,7 +12,7 @@ $(function() {
     var contributors = {};
 
     data.items.forEach(function(repo) {
-      var repoContainer = $('#' + repo.name);
+      var repoContainer = $('[id="' + repo.name + '"]');
       if(repoContainer.length > 0) {
         repos.push(repo.name);
         repoContainer.attr('href', repo.html_url);
@@ -30,8 +30,11 @@ $(function() {
         if(!data) return;
 
         data.forEach(function(contributor) {
-          if(!contributors[contributor.login])
+          if(!contributors[contributor.login]) {
             contributors[contributor.login] = contributor;
+          } else {
+            contributors[contributor.login].contributions += contributor.contributions;
+          }
         });
       });
       requests.push(request);
@@ -39,14 +42,21 @@ $(function() {
     var allRequests = $.when.apply($, requests);
     allRequests.done(function() {
       var contributorsContainer = $('#contributors');
-      Object.keys(contributors).eachSlice(6, function(row) {
-        var rowContainer = $('<div class="row"></div>');
-        row.forEach(function(contributor) {
-          var contributorContainer = $('<div class="col-md-2 col-sm-4"><img class="contributor-image" src="' + contributors[contributor].avatar_url + '"/></div>');
-          rowContainer.append(contributorContainer);
-        });
-        contributorsContainer.append(rowContainer);
-      });
+      Object.keys(contributors)
+            .sort(function(a,b){return contributors[b].contributions-contributors[a].contributions})
+            .eachSlice(6, function(row) {
+              var rowContainer = $('<div class="row"></div>');
+              row.forEach(function(contributor) {
+                var contributorContainer = $('<div class="col-md-2 col-sm-4"><a href="' +
+                                              contributors[contributor].html_url +
+                                              '"><img class="contributor-image" src="' +
+                                              contributors[contributor].avatar_url +
+                                              '"/></a></div>');
+                rowContainer.append(contributorContainer);
+              });
+
+              contributorsContainer.append(rowContainer);
+            });
     })
   });
 
