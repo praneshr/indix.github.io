@@ -13,7 +13,7 @@ fi
 
 cd $DEPLOY_FOLDER
 git pull origin master
-cp -r ../build/ .
+cp -r ../build/* .
 
 git add -A
 git commit -am "Site generated at $(date)"
