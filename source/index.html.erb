@@ -50,10 +50,12 @@ title: Indix OSS
       <div class="row">
         <% row.each do |contributor| %>
           <div class="contributor col-md-2 col-sm-4 col-xs-6" data-contributions="<%= contributor[1].contributions %>">
-            <a href="<%= contributor[1].html_url %>">
-              <img class="contributor-image" src="<%= contributor[1].avatar_url%>" />
-            </a>
-            <p><span><%= contributor[1].contributions %></span></p>
+            <div class="wrapper">
+              <a href="<%= contributor[1].html_url %>">
+                <img class="contributor-image" src="<%= contributor[1].avatar_url%>" />
+              </a>
+              <p><span><%= contributor[1].contributions %></span></p>
+            </div>
           </div>
         <% end %>
       </div>

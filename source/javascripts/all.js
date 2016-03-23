@@ -60,14 +60,12 @@ $(function() {
             .eachSlice(6, function(row) {
               var rowContainer = $('<div class="row"></div>');
               row.forEach(function(contributor) {
-                var contributorContainer = $('<div class="contributor col-md-2 col-sm-4 col-xs-6" data-contributions="' +
-                                              contributors[contributor].contributions +
-                                              '"><a href="' +
-                                              contributors[contributor].html_url +
-                                              '"><img class="contributor-image" src="' +
-                                              contributors[contributor].avatar_url +
-                                              '"/></a><p><span>' + contributors[contributor].contributions +
-                                              '</span></p></div>');
+                var contributorContainer = $('<div class="contributor col-md-2 col-sm-4 col-xs-6"><div class="wrapper">' +
+                                             '<a href="' + contributors[contributor].html_url +
+                                             '"><img class="contributor-image" src="' +
+                                             contributors[contributor].avatar_url +
+                                             '"/></a><p><span>' + contributors[contributor].contributions +
+                                             '</span></p></div></div>');
                 rowContainer.append(contributorContainer);
               });
 
