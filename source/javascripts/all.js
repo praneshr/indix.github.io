@@ -16,7 +16,7 @@ $(function() {
     }
   });
 
-  $.get('https://api.github.com/search/repositories?per_page=20&page=1&q=user:ind9&sort=stars', function(data) {
+  $.get('https://api.github.com/search/repositories?per_page=32&page=1&q=user:ind9&sort=stars', function(data) {
     if(!data) return;
 
     var repos = [];
