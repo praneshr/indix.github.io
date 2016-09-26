@@ -14,4 +14,4 @@ gem 'middleman-livereload'
 gem 'middleman-compass', '>= 4.0.0'
 
 gem 'bh', '>= 1.3.6'
-gem "github_api"
+gem "github_api", '>= 0.14.5'
