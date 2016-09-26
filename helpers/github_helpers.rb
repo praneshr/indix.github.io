@@ -6,7 +6,8 @@ module GithubHelpers
     @@github = Github.new do |c|
       c.basic_auth = config[:github_auth]
     end
-    @@repo_contributors = @@github.repos.contributors 'ind9', repo
+    print(", " + repo)
+    @@repo_contributors = @@github.repos.contributors 'indix-eng', repo
     @@repo_contributors.each { |contributor|
       if @@contributors.key?(contributor.login)
         @@contributors[contributor.login].contributions += contributor.contributions

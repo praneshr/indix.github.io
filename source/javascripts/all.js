@@ -16,7 +16,7 @@ $(function() {
     }
   });
 
-  $.get('https://api.github.com/search/repositories?per_page=32&page=1&q=user:ind9&sort=stars', function(data) {
+  $.get('https://api.github.com/search/repositories?per_page=32&page=1&q=user:indix-eng&sort=stars', function(data) {
     if(!data) return;
 
     var repos = [];
@@ -40,7 +40,7 @@ $(function() {
 
     var requests = [];
     repos.forEach(function(repo) {
-      var request = $.get('https://api.github.com/repos/ind9/' + repo + '/contributors', function(data) {
+      var request = $.get('https://api.github.com/repos/indix-eng/' + repo + '/contributors', function(data) {
         if(!data) return;
 
         data.forEach(function(contributor) {
