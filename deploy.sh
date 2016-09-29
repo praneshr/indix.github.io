@@ -8,7 +8,7 @@ bundle install
 bundle exec middleman build --verbose
 
 if [ ! -d "$DEPLOY_FOLDER" ]; then
-  git clone -b master git@github.com:indix-eng/indix-eng.github.io $DEPLOY_FOLDER
+  git clone -b master git@github.com:indix/indix.github.io $DEPLOY_FOLDER
 fi
 
 cd $DEPLOY_FOLDER

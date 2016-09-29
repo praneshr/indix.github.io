@@ -6,7 +6,7 @@ module GithubHelpers
     puts "Building contributors info for #{repo}"
 
     @@github = Github.new basic_auth: config[:github_auth]
-    @@repo_contributors = @@github.repos.contributors 'indix-eng', repo
+    @@repo_contributors = @@github.repos.contributors 'indix', repo
     @@repo_contributors.each { |contributor|
       if @@contributors.key?(contributor.login)
         @@contributors[contributor.login].contributions += contributor.contributions
