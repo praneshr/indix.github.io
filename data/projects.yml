@@ -1,6 +1,7 @@
 - gocd-s3-artifacts
 - matsya
 - vamana
+- aws-maintenance-lambda
 - rocks
 - vasuki
 - gocd-mesos
