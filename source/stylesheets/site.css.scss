@@ -174,9 +174,24 @@ a{
     position: relative;
     display: inline-block;
     overflow: hidden;
-
-    p {
+    
+    p.login {
       display: inline;
+      span {
+        position: absolute;
+        bottom: 0px;
+        height: 40px;
+        width: 100%;
+        background: #f13e4e;
+        text-align: center;
+        color: #ffffff;
+        font-weight: 200;
+        line-height: 30pt;
+      }
+    }
+
+    p.contributions {
+      
       span {
         color: #ffffff;
         font-weight: 200;

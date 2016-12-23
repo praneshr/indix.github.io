@@ -40,21 +40,41 @@ title: Indix OSS
       <% end %>
     <% end %>
   </div>
+  <% if contributor_of_week[1][:contributions_week] > 0 %>
+  <div class="container" id="contributor-of-week">
+    <div class="section-title">
+      <div class="title">
+        <span>Contributor of the week</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="contributor col-md-4 col-md-offset-4" data-contributions="<%= contributor_of_week[1][:contributions_week] %>">
+        <div class="wrapper">
+          <a href="<%= contributor_of_week[1][:html_url] %>">
+            <img class="contributor-image" src="<%= contributor_of_week[1][:avatar_url]%>" />
+          </a>
+          <p class="contributions"><span><%= contributor_of_week[1][:contributions_week] %></span></p>
+          <p class="login"><span><%= contributor_of_week[0] %><span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
   <div class="container" id="contributors" data-is-client-side="<%= is_client_side %>">
     <div class="section-title">
       <div class="title">
         <span>Contributors</span>
       </div>
     </div>
-    <% contributors.sort_by { |k,v| -v.contributions }.each_slice(6) do |row| %>
+    <% contributors.sort_by { |k,v| -v[:contributions] }.each_slice(6) do |row| %>
       <div class="row">
         <% row.each do |contributor| %>
-          <div class="contributor col-md-2 col-sm-4 col-xs-6" data-contributions="<%= contributor[1].contributions %>">
+          <div class="contributor col-md-2 col-sm-4 col-xs-6" data-contributions="<%= contributor[1][:contributions] %>">
             <div class="wrapper">
-              <a href="<%= contributor[1].html_url %>">
-                <img class="contributor-image" src="<%= contributor[1].avatar_url%>" />
+              <a href="<%= contributor[1][:html_url] %>">
+                <img class="contributor-image" src="<%= contributor[1][:avatar_url]%>" />
               </a>
-              <p><span><%= contributor[1].contributions %></span></p>
+              <p class="contributions"><span><%= contributor[1][:contributions] %></span></p>
             </div>
           </div>
         <% end %>
