@@ -12,6 +12,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 gem 'middleman', '>= 4.0.0'
 gem 'middleman-livereload'
 gem 'middleman-compass', '>= 4.0.0'
+gem 'middleman-google-analytics', '~> 3.0'
 
 gem 'bh', '>= 1.3.6'
 gem "github_api"

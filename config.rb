@@ -8,6 +8,11 @@ end
 
 activate :bh
 
+activate :google_analytics do |ga|
+  ga.tracking_id = 'UA-29521335-1'
+  ga.minify = true
+end
+
 config[:github_auth] = ENV['GITHUB_AUTH'] || false
 
 # Build-specific configuration
