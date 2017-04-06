@@ -6,7 +6,7 @@ deploy:
   local_dir: build
   skip_cleanup: true
   target_branch: master
-  github_token: $GITHUB_AUTH
+  github_token: "$GITHUB_AUTH"
   email: manoj@indix.com
   name: Manoj
   on:
@@ -14,6 +14,6 @@ deploy:
 notifications:
   slack:
     rooms:
-      secure: HQdcZwqDY9+vGW7N9YZ2tFeU50SgqrWEQefI/injWVcndkAL7U/TFOoFvyOdxPZA1sya3aKUyAfVVv7BzMdPUfas41LgYj+iSWAaidiwqrJMp3lkvvALoXId9IDrdWcbhqJ4F51dfO8ck6Jf0S9cXtXC8/dSunWJORdr9ycgkxs=
-    on_success: change
+      secure: YRnQfiVWd75lTCW48BejXwxJvDph6zqx38OLXeeI7ckY46x8iXLtpBEtkG735Mfe3EyGx5PQL25iBQ63gs80NfRRy3RahZc9m6vkOLDsNHNGpQyNGdfrIWIdNU8gy1VrVohd/ovh0sWGwaWNRM43yXoVLZKpxiQy9Sx2cpupn+4UrBGLxP302lgejCDoC8aGa5VdYEqRz+qy0qSnvbRQQYqsfHanUC/3CN9ZKtoEHcCJbb4ERz9fITAJXgnLIrNyJBADGvVecJCEKe7ZRAvD5NUDOqtn4aYJNFkJVZLQ3D9BYVbThKqBm0HGZF8TR0BuoGVk7sHBT5BR0uw+OSpoUGWNbN2eqaxO9w4wSAQpt972QgcVboPgWNWFdUYsxM1NVH6EnUNeUab09Jzl2FKJTJBvRL41CfCraSo9yAj1jB7tEK/quhaGU+Z35vlF8v3dcFQqHPC+IuuUu0zBq8vIYU1Yo6r0ujjm2sv4WQGmKSPOY/79/MxhY/zubOwOSgvybmQlumjwHg4T7s0zxQNBx47cKa+MeWYggfOudtv7JJjtl4UU1IjYyJqtP6IbrMdNhP92qUf9XK4XReL+TVpF6cqK54LTkQzqkKXD+87j7Q8KxFZumYhJSR3lzCC7HJBSMhyl+2soLv9jrk7MoAbHLTQa9amsjmaYoqmC8WAONZY=
+    on_success: always
     on_failure: always
