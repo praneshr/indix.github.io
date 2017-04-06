@@ -1,6 +1,6 @@
 # Indix Open Source Website
 
-[![Build Status](https://snap-ci.com/indix/indix.github.io/branch/source/build_image)](https://snap-ci.com/indix/indix.github.io/branch/source)
+[![Build Status](https://travis-ci.org/indix/indix.github.io.svg?branch=master)](https://travis-ci.org/indix/indix.github.io)
 
 ## Setup
 
