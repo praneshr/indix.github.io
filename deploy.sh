@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 bundle install
 bundle exec middleman build --verbose

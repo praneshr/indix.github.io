@@ -6,7 +6,7 @@ deploy:
   local_dir: build
   skip_cleanup: true
   target_branch: master
-  github_token: $GITHUB_TOKEN
+  github_token: $GITHUB_AUTH
   email: manoj@indix.com
   name: Manoj
 notifications:
