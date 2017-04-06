@@ -9,6 +9,8 @@ deploy:
   github_token: $GITHUB_AUTH
   email: manoj@indix.com
   name: Manoj
+  on:
+    branch: source
 notifications:
   slack:
     rooms:
