@@ -1,0 +1,17 @@
+language: ruby
+cache: bundler
+script: "./deploy.sh"
+deploy:
+  provider: pages
+  local_dir: build
+  skip_cleanup: true
+  target_branch: master
+  github_token: $GITHUB_TOKEN
+  email: manoj@indix.com
+  name: Manoj
+notifications:
+  slack:
+    rooms:
+      secure: HQdcZwqDY9+vGW7N9YZ2tFeU50SgqrWEQefI/injWVcndkAL7U/TFOoFvyOdxPZA1sya3aKUyAfVVv7BzMdPUfas41LgYj+iSWAaidiwqrJMp3lkvvALoXId9IDrdWcbhqJ4F51dfO8ck6Jf0S9cXtXC8/dSunWJORdr9ycgkxs=
+    on_success: change
+    on_failure: always
