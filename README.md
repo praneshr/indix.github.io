@@ -1,6 +1,6 @@
 # Indix Open Source Website
 
-[![Build Status](https://travis-ci.org/indix/indix.github.io.svg?branch=master)](https://travis-ci.org/indix/indix.github.io)
+[![Build Status](https://travis-ci.org/indix/indix.github.io.svg?branch=source)](https://travis-ci.org/indix/indix.github.io)
 
 ## Setup
 
