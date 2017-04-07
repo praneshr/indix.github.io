@@ -26,6 +26,7 @@ module GithubHelpers
     @@github = Github.new basic_auth: config[:github_auth]
     @@repo_contributors = @@github.repos.stats.contributors 'indix', repo
     @@repo_contributors.each { |contributor|
+      puts "#{contributor.author.login} (#{contributor.total})"
       if @@contributors.key?(contributor.author.login)
         @@contributors[contributor.author.login][:contributions] += contributor.total
         @@contributors[contributor.author.login][:contributions_week] += week_contribution(contributor.weeks)
