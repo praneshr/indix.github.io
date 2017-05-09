@@ -24,7 +24,15 @@ module GithubHelpers
     puts "Building contributors info for #{repo}"
 
     @@github = Github.new basic_auth: config[:github_auth]
-    @@repo_contributors = @@github.repos.stats.contributors 'indix', repo
+    retries = 0
+    statsResponse = loop do
+      retries += 1
+      response = @@github.repos.stats.contributors 'indix', repo
+      break response if response.headers.status == 200 or retries == 4
+      puts "Retrying [#{retries}] stats for #{repo}"
+    end
+    raise "Unable to get contributor stats for #{repo}" if not statsResponse.headers.status == 200
+    @@repo_contributors = statsResponse.body
     @@repo_contributors.each { |contributor|
       puts "#{contributor.author.login} (#{contributor.total})"
       if @@contributors.key?(contributor.author.login)
