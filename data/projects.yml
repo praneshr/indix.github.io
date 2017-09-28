@@ -2,6 +2,7 @@
 - matsya
 - vamana
 - aws-maintenance-lambda
+- terraform-aws-maintenance-lambda
 - rocks
 - vasuki
 - marathon-logger
