@@ -1,6 +1,8 @@
 language: ruby
 cache: bundler
 script: "./deploy.sh"
+before_install:
+  - "gem update --system"
 deploy:
   provider: pages
   local_dir: build
