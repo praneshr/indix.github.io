@@ -3,6 +3,7 @@ cache: bundler
 script: "./deploy.sh"
 before_install:
   - "gem update --system"
+  - "gem update bundler"
 deploy:
   provider: pages
   local_dir: build
